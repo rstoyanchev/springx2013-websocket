@@ -1,0 +1,12 @@
+{
+  "name": "WebSocket Applications with Spring Framework 4.0",
+  "description": "WebSocket Applications with Spring Framework 4.0",
+  "sections": [
+    {"section":"intro"},
+    {"section":"websocket-api"},
+    {"section":"sockjs"},
+    {"section":"building-apps"},
+    {"section":"stomp"},
+    {"section":"spring-messaging"}
+  ]
+}
