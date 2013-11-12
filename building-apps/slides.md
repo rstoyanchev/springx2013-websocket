@@ -1,10 +1,10 @@
 !SLIDE subsection
 
-# WebSocket Apps<br>Spring Framework 4.0 (Part 2)
+# WebSocket in<br>Spring Framework 4.0 (part 2)
 ## [Rossen Stoyanchev](https://twitter.com/rstoya05)
 
 !SLIDE smaller bullets incremental
-# Non-Trivial WebSocket Apps
+# Non-Trivial WebSocket App
 
 * WebSocket is quite low level
 * Thin layer above TCP
@@ -12,8 +12,8 @@
 * Arguably not an application-level protocol like HTTP
 
 !SLIDE small
-## Somewhat comparable
-## to a __custom Servlet__ application
+## Somewhat comparable to
+## writing a __custom Servlet__ application
 
 !SLIDE small
 ## Except WebSocket is even lower level
@@ -60,12 +60,12 @@ From next [reply](https://java.net/projects/websocket-spec/lists/users/archive/2
 * Still a web application though!
 
 !SLIDE smaller bullets incremental
-# Message Broker Is an Option
+# Message Brokers an Option?
 
 * It's possible to [connect to RabbitMQ](http://www.rabbitmq.com/blog/2012/05/14/introducing-rabbitmq-web-stomp/), [ActiveMQ](http://activemq.apache.org/stomp),<br>and others straight from a browser
 * Messaging is a hard problem to solve<br>and brokers have much to offer
-* Traditionally used within enterprise though
-* Not for building web apps
+* Traditionally used within enterprise
+* Not over the web
 
 !SLIDE smaller bullets incremental
 # We Need a Bit of Both Worlds
@@ -78,12 +78,5 @@ From next [reply](https://java.net/projects/websocket-spec/lists/users/archive/2
 # Many Approaches Exist
 <br><br>
 ![Logos of projects](logos.png)
-
-
-
-
-
-
-
 
 

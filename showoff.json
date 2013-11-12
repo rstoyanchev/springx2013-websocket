@@ -7,6 +7,7 @@
     {"section":"sockjs"},
     {"section":"building-apps"},
     {"section":"stomp"},
-    {"section":"spring-messaging"}
+    {"section":"spring-messaging"},
+    {"section":"end"}
   ]
 }

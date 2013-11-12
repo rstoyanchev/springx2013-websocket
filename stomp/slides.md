@@ -11,9 +11,9 @@
 !SLIDE smaller bullets incremental
 # STOMP
 
-* Simple messaging protocol<br>originally for use form scripting languages (Ruby, Python)
+* Simple messaging protocol<br>originally for use from scripting languages (Ruby, Python)
 * Widely [supported](http://stomp.github.io/implementations.html#STOMP_Servers) by message brokers
-* Can be used over TCP and over WebSocket
+* Can be used over over WebSocket and TCP
 * Frames modelled on HTTP
 
 !SLIDE smaller center
@@ -45,18 +45,22 @@
 * Typically path-like URIs (`"/queue/a"`, `"/topic/a"`)
 * Message brokers define precise semantics
 
+!SLIDE center small
+## A server cannot send unsolicited messages
+## client must subscribe first
+
 !SLIDE smaller center
-# Client Producing a Message
+# Client Sends Message
 <br>
 ![SEND frame](send-frame.png)
 
 !SLIDE smaller center
-# Client Subscribing
+# Client Subscribes for Messages
 <br>
 ![SUBSCRIBE frame](subscribe-frame.png)
 
 !SLIDE smaller center
-# Client Receiving a Message
+# Client Receives Message
 <br>
 ![MESSAGE frame](message-frame.png)
 
@@ -65,10 +69,10 @@
 ## <em>(vs raw WebSocket)</em>
 <br><br>
 * Standard message format
-* Browser clients, e.g. [stomp.js](https://github.com/jmesnil/stomp-websocket), [msgs.js](https://github.com/cujojs/msgs)
-* Common messaging patterns
+* Browser client libraries: [stomp.js](https://github.com/jmesnil/stomp-websocket), [msgs.js](https://github.com/cujojs/msgs)
+* Support for messaging patterns
 * Ability to incorporate (full-featured) message broker
-* Application-level protocol
+* An application-level protocol
 
 
 

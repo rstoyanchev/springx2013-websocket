@@ -1,21 +1,22 @@
 !SLIDE subsection
 
-# WebSocket Apps<br>Spring Framework 4.0 (Part 1)
+# WebSocket in<br>Spring Framework 4.0 (part 1)
 ## [Rossen Stoyanchev](https://twitter.com/rstoya05)
 
 !SLIDE small
 
 # Part 1:
-## Comprehensive Introduction
+## Comprehensive Intro to WebSocket
+## in Spring Framework 4.0
 <br>
 # Part 2:
 ## Building WebSocket Applications
 
 !SLIDE small
-# This presentation
+# This Presentation
 <br><br>
 ## [https://github.com/rstoyanchev/](https://github.com/rstoyanchev/springexchange2013-websocket)
-## [springexchange2013-websocket](https://github.com/rstoyanchev/springexchange2013-websocket)
+## [springx2013-websocket](https://github.com/rstoyanchev/springx2013-websocket)
 
 !SLIDE smaller bullets incremental
 # The WebSocket Protocol
