@@ -127,7 +127,7 @@
 # `@MessageMapping`
 
 * Supported on type- and method-level
-* Mappings support Ant-style patterns and URI variables<br>with `@PathVariable` arguments
+* Ant-style patterns with URI variables<br>and `@PathVariable` arguments
 * Various methods arguments<br>`@Header/@Headers`, `@Payload`, `Message`, `Principal`
 
 !SLIDE smaller bullets incremental
@@ -135,12 +135,11 @@
 ## Return Values
 <br><br>
 * Return value converted and wrapped as message
-* Broadcast to same destination but<br>with default prefix of `"/topic"` (configurable)
-* Use `@SendTo` to specify different destination(s)
+* Broadcast by default to same destination but<br>with a default, configurable prefix `"/topic"`
+* Or choose precise destination(s) with `@SendTo`
 
 !SLIDE smaller
-# Handle Message
-## with Return Value
+# Send via Return Value
 <br>
     @@@ java
 
@@ -157,15 +156,14 @@
     }
 
 !SLIDE smaller
-# Handle Message
-## with Return Value
+# Send via Return Value
 <br>
     @@@ java
 
     @Controller
     public class GreetingController {
 
-      // message broadcast to "/topic/greetings"
+      // A message is broadcast to "/topic/greetings"
 
       @MessageMapping("/greetings")
       public String greet(String greeting) {
@@ -175,8 +173,8 @@
     }
 
 !SLIDE smaller
-# Handle Message
-## with Return Value
+# Send to Different Destination
+## with `@SendTo`
 <br>
     @@@ java
 
@@ -193,7 +191,7 @@
     }
 
 !SLIDE smaller
-# Send with `SimpMessagingTemplate`
+# Send via `SimpMessagingTemplate`
 
     @@@ java
 
@@ -243,7 +241,7 @@
 <br>
 * Check broker STOMP page, e.g. [RabbitMQ](http://www.rabbitmq.com/stomp.html), [ActiveMQ](http://activemq.apache.org/stomp.html)
 * Install and run broker with STOMP support
-* Enable STOMP __"broker relay"__ in Spring
+* Enable STOMP __"broker relay"__ in Spring<br>instead of "simple" broker
 * Messages now broadcast via message broker
 
 !SLIDE smaller
@@ -315,15 +313,23 @@
 * All messages enriched with "user" header
 
 !SLIDE smaller bullets incremental
-# `"/user"` Destinations
+# Destination `"/user/**"`
 
-* Special Spring-supported destination semantics
-* Makes it easy to create uniquely named, per-user queues
-* Useful for receiving error or any user-specific info<br>(e.g. trade confirmation)
+* Spring-supported destination
+* Create __uniquely named__, user-specific queues
+* Useful for receiving errors or any user-specific info<br>(trade confirmation, etc)
 
 !SLIDE smaller bullets incremental
-# Client Subscribes To
-# `"/user/queue/..."`
+# `UserDestinationHandler`
+
+* Transforms `"/user/..."` destinations
+* Removes prefix, appends unique id and resends message
+* Client subscribes to `"/user/queue/abc"` (without collision)
+* Can then send to `"/user/{username}/queue/abc"`
+
+!SLIDE smaller bullets incremental
+# Client Subscribes
+## To `"/user/queue/..."`
 
     @@@ javascript
 
@@ -342,14 +348,68 @@
 
     }
 
+!SLIDE smaller
+# Send Reply To User
+<br>
+    @@@ java
+
+    @Controller
+    public class GreetingController {
+
+
+
+      @MessageMapping("/greetings")
+
+      public String greet(String greeting) {
+          return "[" + getTimestamp() + "]: " + greeting;
+      }
+
+    }
 
 !SLIDE smaller
-# Controller Sends Error
+# Send Reply To User
+<br>
+    @@@ java
+
+    @Controller
+    public class GreetingController {
+
+
+
+      @MessageMapping("/greetings")
+      @SendToUser
+      public String greet(String greeting) {
+          return "[" + getTimestamp() + "]: " + greeting;
+      }
+
+    }
+
+!SLIDE smaller
+# Send Reply To User
+<br>
+    @@@ java
+
+    @Controller
+    public class GreetingController {
+
+      // Message sent to "/user/{username}/queue/greetings"
+
+      @MessageMapping("/greetings")
+      @SendToUser
+      public String greet(String greeting) {
+          return "[" + getTimestamp() + "]: " + greeting;
+      }
+
+    }
+
+!SLIDE smaller
+# Send Error To User
 
     @@@ java
 
     @Controller
     public class GreetingController {
+
 
 
       @MessageExceptionHandler
@@ -361,9 +421,9 @@
     }
 
 !SLIDE smaller
-# Send To User
+# Send Message To User
 ## via `SimpMessagingTemplate`
-
+<br><br>
     @@@ java
     @Service
     public class TradeService {
@@ -381,21 +441,13 @@
 
     }
 
-!SLIDE smaller bullets incremental
-# `UserDestinationHandler`
-
-* Translates `"/user/..."` destinations
-* Appends per-user unique identifier to queue name
-* Ensures no collision with other users
-
-
 !SLIDE center
 ![Architecture diagram](architecture-full.png)
 
 
 !SLIDE smaller bullets incremental
 # Managing Inactive Queues
-## _(full-featured brokers)_
+## _(with Full-Featured Broker)_
 <br><br>
 * Check broker documentation
 * For example RabbitMQ creates auto-delete queue<br>with destinations like `"/exchange/amq.direct/a"`

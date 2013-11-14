@@ -12,12 +12,12 @@
 # STOMP
 
 * Simple messaging protocol<br>originally for use from scripting languages (Ruby, Python)
-* Widely [supported](http://stomp.github.io/implementations.html#STOMP_Servers) by message brokers
-* Can be used over over WebSocket and TCP
+* Widely [supported](http://stomp.github.io/implementations.html)
+* Can be used over WebSocket (origingally over TCP)
 * Frames modelled on HTTP
 
 !SLIDE smaller center
-# STOMP Frame Content
+# STOMP Frame
 <br>
 ![STOMP Frame Content](stomp-frame-content.png)
 
@@ -38,41 +38,45 @@
 * `NACK`
 
 !SLIDE smaller bullets incremental
-# The `"Destination"` Header
+# `"Destination"` Header
 
-* A key concept in STOMP
 * Opaque string, syntax left to server
 * Typically path-like URIs (`"/queue/a"`, `"/topic/a"`)
-* Message brokers define precise semantics
+* Message brokers define semantics
 
 !SLIDE center small
+## Keep in mind:
+<br>
 ## A server cannot send unsolicited messages
 ## client must subscribe first
 
 !SLIDE smaller center
-# Client Sends Message
+# Example
+## Client Sends Message
 <br>
 ![SEND frame](send-frame.png)
 
 !SLIDE smaller center
-# Client Subscribes for Messages
+# Example
+## Client Subscribes To Receive Messages
 <br>
 ![SUBSCRIBE frame](subscribe-frame.png)
 
 !SLIDE smaller center
-# Client Receives Message
+# Example
+## Client Receives Message
 <br>
 ![MESSAGE frame](message-frame.png)
 
 !SLIDE smaller bullets incremental
-# Advantages of Using STOMP
-## <em>(vs raw WebSocket)</em>
+# STOMP vs plain WebSocket
 <br><br>
 * Standard message format
 * Browser client libraries: [stomp.js](https://github.com/jmesnil/stomp-websocket), [msgs.js](https://github.com/cujojs/msgs)
 * Support for messaging patterns
 * Ability to incorporate (full-featured) message broker
-* An application-level protocol
+* Application-level protocol<br>so we can useful annotations, etc.
+
 
 
 

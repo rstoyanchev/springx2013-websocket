@@ -1,10 +1,10 @@
 !SLIDE subsection
 
-# WebSocket in<br>Spring Framework 4.0 (part 2)
+# WebSocket Apps<br>Spring Framework 4 (part 2)
 ## [Rossen Stoyanchev](https://twitter.com/rstoya05)
 
 !SLIDE smaller bullets incremental
-# Non-Trivial WebSocket App
+# Non-Trivial Applications
 
 * WebSocket is quite low level
 * Thin layer above TCP
@@ -12,7 +12,7 @@
 * Arguably not an application-level protocol like HTTP
 
 !SLIDE small
-## Somewhat comparable to
+## Using a WebSocket API is a bit like
 ## writing a __custom Servlet__ application
 
 !SLIDE small
@@ -47,23 +47,23 @@ From next [reply](https://java.net/projects/websocket-spec/lists/users/archive/2
 # The Sub-protocol Attribute
 
 * WebSocket defines the use of [sub-protocols](http://tools.ietf.org/html/rfc6455#section-1.9)<br>i.e. higher-level protocols
-* It is optional
+* ...but does not require it
 * Either way apps are going to choose a message format<br>be it custom, standard, or framework-specific
 * The choice has implications for client and server
 
 !SLIDE smaller bullets incremental
 # Furthermore..
 
-* WebSocket implies messaging architecture
+* WebSocket implies a messaging architecture
 * Completely different from HTTP/REST--<br>asynchronous, event-driven, reactive
 * Closer to traditional messaging (JMS, AMQP, etc)
-* Still a web application though!
+* Still a web application though
 
 !SLIDE smaller bullets incremental
 # Message Brokers an Option?
 
-* It's possible to [connect to RabbitMQ](http://www.rabbitmq.com/blog/2012/05/14/introducing-rabbitmq-web-stomp/), [ActiveMQ](http://activemq.apache.org/stomp),<br>and others straight from a browser
-* Messaging is a hard problem to solve<br>and brokers have much to offer
+* It's possible to [connect to RabbitMQ](http://www.rabbitmq.com/blog/2012/05/14/introducing-rabbitmq-web-stomp/), [ActiveMQ](http://activemq.apache.org/stomp),<br>and others from a browser
+* Messaging is a hard problem<br>and brokers have worked on it for a long time
 * Traditionally used within enterprise
 * Not over the web
 
@@ -72,7 +72,7 @@ From next [reply](https://java.net/projects/websocket-spec/lists/users/archive/2
 
 * Event-driven, messaging achitecture
 * Ideally have option to incorporate message broker
-* Yet remain close to the needs of web apps
+* Yet remain close to the needs of web applications
 
 !SLIDE smaller center
 # Many Approaches Exist

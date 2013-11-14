@@ -1,6 +1,6 @@
 !SLIDE subsection
 
-# WebSocket in<br>Spring Framework 4.0 (part 1)
+# WebSocket Apps<br>Spring Framework 4 (part 1)
 ## [Rossen Stoyanchev](https://twitter.com/rstoya05)
 
 !SLIDE small
