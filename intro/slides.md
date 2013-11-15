@@ -32,7 +32,7 @@
 * 1996 - Java Applets/Netscape 2.0
 * 1999/2000 - XMLHttpRequest
 * 2003 - Macromedia/Adobe Flash
-* 2006 - Comet (term by Alex Russel)<br><br><em>XHR long-polling, XHR streaming,<br>htmlfile ActiveXObject, Server-Sent Events, ...</em>
+* 2006 - Comet (term by Alex Russel)<br><br>XHR long-polling, XHR streaming,<br>htmlfile ActiveXObject, Server-Sent Events, etc
 
 !SLIDE smaller bullets incremental
 # How Did We Get Here?

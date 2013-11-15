@@ -2,7 +2,8 @@
 !SLIDE smaller bullets incremental
 # Spring Framework 4.0
 
-* First class WebSocket support<br>with built-in, transparent [SockJS](sockjs.org) fallback options
+* First class WebSocket support
+* [SockJS](sockjs.org) fallback options
 * [STOMP](http://stomp.github.io/index.html) over WebSocket support<br>with ability to plug external message broker
 * A foundation for messaging architecture-<br>based on core types from __Spring Integration__
 
