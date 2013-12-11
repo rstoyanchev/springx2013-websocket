@@ -108,7 +108,7 @@
 # Detecting Client Disconnects
 
 * No notification with Servlet 3 async support<br>when a client does away
-* See [SERVLET_SPEC-44](https://java.net/jira/b-rowse/SERVLET_SPEC-44) (and vote!)
+* See [SERVLET_SPEC-44](https://java.net/jira/browse/SERVLET_SPEC-44) (and vote!)
 * However `SockJsService` sends periodic heartbeats<br>every 25 secs by default
 * Session cleaned up on failure to send message
 
